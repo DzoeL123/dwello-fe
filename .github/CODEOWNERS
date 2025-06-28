@@ -1,0 +1,23 @@
+# CODEOWNERS file for dwello-fe
+# This file ensures that code review requests are automatically assigned.
+
+# Set global code owners
+* @joelpthomas
+
+# Libraries
+/libs/explore/shell/ @joelpthomas
+/libs/explore/feature/ @joelpthomas
+/libs/explore/ui/ @joelpthomas
+/libs/explore/state/ @joelpthomas
+
+# Scripts
+/scripts/ @joelpthomas
+
+# Configuration
+/tsconfig.base.json @joelpthomas
+/angular.json @joelpthomas
+/nx.json @joelpthomas
+/package.json @joelpthomas
+
+# CI/CD workflows
+/.github/workflows/ @joelpthomas

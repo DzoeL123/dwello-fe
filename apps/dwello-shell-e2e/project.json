@@ -1,0 +1,10 @@
+{
+  "name": "dwello-shell-e2e",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/dwello-shell-e2e/src",
+  "tags": [],
+  "implicitDependencies": ["dwello-shell"],
+  "// targets": "to see all targets run: nx show project dwello-shell-e2e --web",
+  "targets": {}
+}
