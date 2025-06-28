@@ -1,5 +1,5 @@
 {
-  "name": "@dwello-fe/source",
+  "name": "dwello-fe",
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
@@ -8,9 +8,9 @@
     "generate:ui": "./scripts/generate-ui-lib.sh",
     "generate:state": "./scripts/generate-state-lib.sh",
     "generate:all": "./scripts/generate-journey.sh",
-    "build": "next build",
-    "lint": "eslint ./src",
-    "test": "node ./run-tests.js"
+    "build:app": "nx run dwello-shell:build",
+    "lint:app": "nx lint dwello-shell",
+    "test:app": "nx test dwello-shell"
   },
   "private": true,
   "dependencies": {
