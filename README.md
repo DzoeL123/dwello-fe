@@ -1,82 +1,206 @@
-# DwelloFe
+# 🏠 Dwello Frontend (dwello-fe)
 
-<a alt="Nx logo" href="https://nx.dev" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="45"></a>
+---
 
-✨ Your new, shiny [Nx workspace](https://nx.dev) is almost ready ✨.
+✨ Modular, Scalable Angular Frontend with Journey-Driven Architecture – Powered by Nx
 
-[Learn more about this workspace setup and its capabilities](https://nx.dev/getting-started/tutorials/angular-monorepo-tutorial?utm_source=nx_project&amp;utm_medium=readme&amp;utm_campaign=nx_projects) or run `npx nx graph` to visually explore what was created. Now, let's get you up to speed!
+dwello-fe is a modular, client-themable, full-featured frontend application, designed to serve **multi-tenant real estate and property management platforms**. 
 
-## Finish your CI setup
+It follows a journey-based modular architecture, integrates theming, feature toggles, state management, and automated CLI tooling to scaffold consistent and maintainable libraries for each journey.
 
-[Click here to finish setting up your workspace!](https://cloud.nx.app/connect/INs2KuQBFT)
+---
 
+## 🎯 Overview
 
-## Run tasks
+**dwello-fe** is a full-featured frontend application developed using [Angular](https://angular.io/) and [Nx](https://nx.dev/), designed for scalable enterprise-grade applications, structured using **journey-based modular design**. Each journey represents a business domain or vertical slice (e.g., `explore`, `manage-tenants`), and encapsulates its own:
 
-To run the dev server for your app, use:
+- 🔷 Shell (routing + layout)
+- 🧩 Feature (feature modules + wrapper components)
+- 🎨 UI (reusable presentational components)
+- 📦 State (NgRx/store or other state logic)
 
-```sh
-npx nx serve dwello-shell
+## 📦 Features
+
+- ✅ Nx monorepo structure
+- 🌐 Lazy-loaded Angular libraries per journey
+- 🎨 Dynamic theming support
+- 🚀 Shell scripts to scaffold journey libraries consistently
+- 💡 Fully typed theming and config system
+- 🌙 Light/Dark mode support
+- 🧪 Built-in **Jest** + **Playwright** testing support
+- 🧰 CI/CD ready
+- 🔌 Extendable for **React**, **Vue**, etc., in the future
+- 📦 Clean imports via `@dwello-fe/<journey>/<lib>`
+
+---
+
+## 📂 Directory Structure
+
 ```
 
-To create a production bundle:
+dwello-fe/
+├── apps/
+│   └── dwello-frontend/       # Angular App
+├── libs/
+│   └── explore/               # Example journey
+│       ├── shell/
+│       ├── feature/
+│       ├── ui/
+│       └── state/
+├── scripts/                   # CLI scaffolding tools
+│   ├── generate-shell-lib.sh
+│   ├── generate-feature-lib.sh
+│   ├── generate-ui-lib.sh
+│   ├── generate-state-lib.sh
+│   ├── generate-journey-libs.sh
+│   └── README.md              # Script usage guide
+├── tsconfig.base.json
+├── nx.json
+├── angular.json
+├── package.json
+└── README.md                  # You're here
 
-```sh
-npx nx build dwello-shell
+````
+
+---
+
+## 🚀 Getting Started
+
+### 🧱 Prerequisites
+
+- [Node.js](https://nodejs.org/) ≥ 18.x
+- Nx CLI: `npm install -g nx`
+
+### 🔧 Install dependencies
+
+```bash
+npm install
 ```
 
-To see all available targets to run for a project, run:
 
-```sh
-npx nx show project dwello-shell
+### 🔧 Install dependencies
+
+```bash
+npm install
 ```
 
-These targets are either [inferred automatically](https://nx.dev/concepts/inferred-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) or defined in the `project.json` or `package.json` files.
+### ▶️ Serve the frontend
 
-[More about running tasks in the docs &raquo;](https://nx.dev/features/run-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-
-## Add new projects
-
-While you could add new projects to your workspace manually, you might want to leverage [Nx plugins](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) and their [code generation](https://nx.dev/features/generate-code?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) feature.
-
-Use the plugin's generator to create new projects.
-
-To generate a new application, use:
-
-```sh
-npx nx g @nx/angular:app demo
+```bash
+nx serve dwello-frontend
 ```
 
-To generate a new library, use:
+---
 
-```sh
-npx nx g @nx/angular:lib mylib
+## 🧰 Using the CLI Scripts
+
+All generation scripts live in `/scripts`. Make them executable first:
+
+```bash
+chmod +x scripts/*.sh
 ```
 
-You can use `npx nx list` to get a list of installed plugins. Then, run `npx nx list <plugin-name>` to learn about more specific capabilities of a particular plugin. Alternatively, [install Nx Console](https://nx.dev/getting-started/editor-setup?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) to browse plugins and generators in your IDE.
+Then run them via `npm run` or directly:
 
-[Learn more about Nx plugins &raquo;](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) | [Browse the plugin registry &raquo;](https://nx.dev/plugin-registry?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+### 🧱 Generate All Journey Libraries
 
+```bash
+npm run generate:all -- explore
+```
 
-[Learn more about Nx on CI](https://nx.dev/ci/intro/ci-with-nx#ready-get-started-with-your-provider?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+Will create:
 
-## Install Nx Console
+```
+libs/explore/
+├── shell/
+├── feature/
+├── ui/
+└── state/
+```
 
-Nx Console is an editor extension that enriches your developer experience. It lets you run tasks, generate code, and improves code autocompletion in your IDE. It is available for VSCode and IntelliJ.
+### 📦 Generate Individual Libraries
 
-[Install Nx Console &raquo;](https://nx.dev/getting-started/editor-setup?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+```bash
+npm run generate:shell -- explore
+npm run generate:feature -- explore
+npm run generate:ui -- explore
+npm run generate:state -- explore
+```
 
-## Useful links
+#### Optional Flags:
 
-Learn more:
+* `--dry-run`: Simulates the command without changing files
+* `--skip-state`: Skips state generation
+* `--only-ui`: Creates only the UI library
 
-- [Learn more about this workspace setup](https://nx.dev/getting-started/tutorials/angular-monorepo-tutorial?utm_source=nx_project&amp;utm_medium=readme&amp;utm_campaign=nx_projects)
-- [Learn about Nx on CI](https://nx.dev/ci/intro/ci-with-nx?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [Releasing Packages with Nx release](https://nx.dev/features/manage-releases?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [What are Nx plugins?](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+---
 
-And join the Nx community:
-- [Discord](https://go.nx.dev/community)
-- [Follow us on X](https://twitter.com/nxdevtools) or [LinkedIn](https://www.linkedin.com/company/nrwl)
-- [Our Youtube channel](https://www.youtube.com/@nxdevtools)
-- [Our blog](https://nx.dev/blog?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+## 🔗 Path Aliases
+
+Libraries are auto-linked in `tsconfig.base.json` for clean imports:
+
+```ts
+import { ExploreShellModule } from '@dwello-fe/explore/shell';
+import { ExploreFeatureWrapperComponent } from '@dwello-fe/explore/feature';
+import { ExploreUiModule } from '@dwello-fe/explore/ui';
+import { ExploreStateModule } from '@dwello-fe/explore/state';
+```
+
+---
+
+## ⚙️ Running Scripts from Root (via `package.json`)
+
+To make script usage easier, add to your `package.json`:
+
+```json
+"scripts": {
+  "generate:shell": "bash scripts/generate-shell-lib.sh",
+  "generate:feature": "bash scripts/generate-feature-lib.sh",
+  "generate:ui": "bash scripts/generate-ui-lib.sh",
+  "generate:state": "bash scripts/generate-state-lib.sh",
+  "generate:all": "bash scripts/generate-journey-libs.sh"
+}
+```
+
+Now run them like:
+
+```bash
+npm run generate:all -- manage-tenants
+```
+
+---
+
+## 🧩 Architecture Philosophy
+
+Each journey is treated as an encapsulated domain:
+
+* `shell/`: entrypoint with routing
+* `feature/`: smart components & containers
+* `ui/`: reusable UI blocks
+* `state/`: domain state handling
+
+You can scale with new journeys and plug them into the main app using lazy-loaded routing modules.
+
+---
+
+## 🔒 License
+
+MIT © 2025 Joel P Thomas & Contributors
+
+---
+
+## 🙌 Contributing
+
+Contributions are welcome! Fork, improve and open a PR.
+
+```
+
+---
+
+Let me know if you want:
+- A `CONTRIBUTING.md` or `CODEOWNERS` file
+- Auto CI/CD GitHub workflows
+- Version tagging or changelog support
+
+We can make this production-ready.
+```
