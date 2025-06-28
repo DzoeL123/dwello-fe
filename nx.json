@@ -19,7 +19,7 @@
   },
   "nxCloudId": "685fafaa17c61a0a6cbcf57c",
   "targetDefaults": {
-    "@angular-devkit/build-angular:browser": {
+    "@angular/build:application": {
       "cache": true,
       "dependsOn": ["^build"],
       "inputs": ["production", "^production"]
@@ -77,6 +77,16 @@
     },
     "@nx/angular:component": {
       "style": "scss"
+    }
+  },
+  "tasksRunnerOptions": {
+    "default": {
+      "runner": "@nx/nx-cloud",
+      "options": {
+        "accessToken": "${NX_CLOUD_ACCESS_TOKEN}",
+        "canTrackAnalytics": false,
+        "showUsageWarnings": true
+      }
     }
   }
 }
