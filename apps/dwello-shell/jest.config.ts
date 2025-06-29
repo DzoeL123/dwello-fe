@@ -1,3 +1,4 @@
+/* eslint-disable */
 export default {
   displayName: 'dwello-shell',
   preset: '../../jest.preset.js',

@@ -68,8 +68,9 @@ dwello-fe/
 
 ### 🧱 Prerequisites
 
-- [Node.js](https://nodejs.org/) ≥ 18.x
-- Nx CLI: `npm install -g nx`
+- [Node.js](https://nodejs.org/) = 22.0.0
+- [Npm](https://www.npmjs.com/package/npm/v/10.5.1) = 10.5.1
+- Nx CLI: `npm install -g nx@18.3.2`
 
 ### 🔧 Install dependencies
 

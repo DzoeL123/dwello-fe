@@ -1,4 +1,5 @@
 import { nxE2EPreset } from '@nx/cypress/plugins/cypress-preset';
+
 import { defineConfig } from 'cypress';
 
 export default defineConfig({
@@ -6,11 +7,10 @@ export default defineConfig({
     ...nxE2EPreset(__filename, {
       cypressDir: 'src',
       webServerCommands: {
-        default: 'npx nx run dwello-shell:serve',
-        production: 'npx nx run dwello-shell:serve-static',
+        default: 'nx run dwello-shell:serve:development',
+        production: 'nx run dwello-shell:serve:production',
       },
-      ciWebServerCommand: 'npx nx run dwello-shell:serve-static',
-      ciBaseUrl: 'http://localhost:4200',
+      ciWebServerCommand: 'nx run dwello-shell:serve-static',
     }),
     baseUrl: 'http://localhost:4200',
   },
