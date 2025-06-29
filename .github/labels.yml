@@ -1,0 +1,27 @@
+- name: fix
+  color: "d73a4a"
+  description: Bug fix or critical issue resolution
+
+- name: build
+  color: "f9d0c4"
+  description: Related to project build system or configuration
+
+- name: ci
+  color: "a2eeef"
+  description: Changes to CI/CD pipelines or scripts
+
+- name: scripts
+  color: "cfd3d7"
+  description: Updates to shell/node scripts or developer tooling
+
+- name: ready for review
+  color: "0e8a16"
+  description: Indicates PR is ready to be reviewed
+
+- name: needs testing
+  color: "e4e669"
+  description: Requires manual or additional testing before merge
+
+- name: documentation
+  color: "0075ca"
+  description: Docs or README updates

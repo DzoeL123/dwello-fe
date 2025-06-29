@@ -7,7 +7,7 @@
   "tags": [],
   "targets": {
     "build": {
-      "executor": "@angular/build:application",
+      "executor": "@angular-devkit/build-angular:browser",
       "outputs": ["{options.outputPath}"],
       "options": {
         "outputPath": "dist/apps/dwello-shell",
@@ -17,31 +17,27 @@
         "tsConfig": "apps/dwello-shell/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
         "assets": [
-          {
-            "glob": "**/*",
-            "input": "apps/dwello-shell/public"
-          }
+          "apps/dwello-shell/src/favicon.ico",
+          "apps/dwello-shell/src/assets"
         ],
-        "styles": ["apps/dwello-shell/src/styles.scss"]
+        "styles": ["apps/dwello-shell/src/styles.scss"],
+        "scripts": []
       },
       "configurations": {
         "production": {
           "budgets": [
             {
               "type": "initial",
-              "maximumWarning": "1mb",
-              "maximumError": "2mb"
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
             },
             {
               "type": "anyComponentStyle",
-              "maximumWarning": "4kb",
-              "maximumError": "8kb"
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
             }
           ],
-          "outputHashing": "all",
-          "main": "apps/dwello-shell/src/main.ts",
-          "index": "apps/dwello-shell/src/index.html",
-          "tsConfig": "apps/dwello-shell/tsconfig.app.json"
+          "outputHashing": "all"
         },
         "development": {
           "buildOptimizer": false,
@@ -55,8 +51,7 @@
       "defaultConfiguration": "production"
     },
     "serve": {
-      "continuous": true,
-      "executor": "@angular/build:dev-server",
+      "executor": "@angular-devkit/build-angular:dev-server",
       "configurations": {
         "production": {
           "buildTarget": "dwello-shell:build:production"
@@ -68,7 +63,7 @@
       "defaultConfiguration": "development"
     },
     "extract-i18n": {
-      "executor": "@angular/build:extract-i18n",
+      "executor": "@angular-devkit/build-angular:extract-i18n",
       "options": {
         "buildTarget": "dwello-shell:build"
       }
@@ -84,7 +79,6 @@
       }
     },
     "serve-static": {
-      "continuous": true,
       "executor": "@nx/web:file-server",
       "options": {
         "buildTarget": "dwello-shell:build",
