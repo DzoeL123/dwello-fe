@@ -152,10 +152,3 @@ Feel free to improve or extend support to other frontend frameworks (React/Vue m
 ---
 
 © 2025 — **Dwello Angular Team**
-
-```
-
----
-
-Would you like me to bundle this README into a downloadable file and/or attach it to a GitHub-compatible repo scaffold template?
-```

@@ -1,0 +1,12 @@
+fix:
+  - '**/*'
+  - 'scripts/**'
+build:
+  - 'angular.json'
+  - 'nx.json'
+  - 'apps/**/project.json'
+ci:
+  - 'scripts/ci*.sh'
+  - '.github/workflows/**'
+scripts:
+  - 'scripts/**'
